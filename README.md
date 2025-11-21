@@ -1,73 +1,104 @@
-# React + TypeScript + Vite
+# Socore UI
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A reusable UI component set for Socore applications, built with React + TypeScript + Vite.
 
-Currently, two official plugins are available:
+This work was developed for Socore Tech. by Ebubekir Yazgan (yazganebubekir4@gmail.com, GitHub: @_bekiryazgann). For more information, visit: https://socore.net/ui?ref=socore-ui (redirects to socore.net).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Table of Contents
+- About the Project
+- Installation & Running
+- Scripts
+- Architecture & Technologies
+- Available Components
+- Proposed/Missing Components
+- Contribution & Development Notes
 
-## React Compiler
+## About the Project
+Socore UI is a component library built on top of Radix UI primitives, styled with Tailwind CSS, and documented via Storybook. The goal is to provide consistent, accessible, and testable interface components across Socore products.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Installation & Running
+Prerequisites: Node.js 20+, pnpm/npm/yarn (commands below use npm as an example).
 
-## Expanding the ESLint configuration
+1. Install dependencies:
+   - npm install
+2. Start the development server:
+   - npm run dev
+3. Start Storybook (recommended for component stories):
+   - npm run storybook
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+For production builds:
+- npm run build
+- npm run preview (local preview)
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Scripts
+- dev: Vite development server
+- build: Builds TypeScript projects, then creates a production build with Vite
+- preview: Serves the production build locally
+- lint: Checks code quality with ESLint
+- storybook: Storybook development server
+- build-storybook: Generates static Storybook output
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Architecture & Technologies
+- React 19, TypeScript, Vite 7
+- Tailwind CSS 4 and tailwind-merge
+- Radix UI (@radix-ui/*) primitives
+- Storybook 10 for component documentation
+- Supporting libraries: clsx, class-variance-authority, date-fns, lucide-react, tabler icons, embla-carousel-react, input-otp, vaul, etc.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Available Components
+The following components exist under src/components and ship with their corresponding .tsx and .stories.tsx files:
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- Accordion (accordion)
+- Alert Dialog (alert-dialog)
+- Badge (badge)
+- Button (button)
+- Button Group (button-group)
+- Calendar (calendar)
+- Card (card)
+- Carousel (carousel)
+- Checkbox (checkbox)
+- Dialog (dialog)
+- Drawer (drawer)
+- Dropdown Menu (dropdown-menu)
+- Empty State (empty)
+- Field (field)
+- Hover Card (hover-card)
+- Input (input)
+- Input Group (input-group)
+- Input OTP (input-otp)
+- Label (label)
+- Separator (separator)
+- Textarea (textarea)
+- Tooltip (tooltip)
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Each component includes its Storybook files (.stories.tsx) and index exports (index.ts/tsx). Styling relies on Tailwind utility classes and, when appropriate, class-variance-authority for variant management.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Proposed/Missing Components
+To round out the scope and enrich the design system, the following components are recommended:
+
+- Avatar (user image and status indicator)
+- Breadcrumb (navigation trail)
+- Pagination (page navigation)
+- Progress (progress bar)
+- Skeleton (loading skeleton)
+- Slider (range selector)
+- Switch (toggle)
+- Radio Group (single selection)
+- Select / Combobox (dropdown selection)
+- Tabs (tabbed navigation)
+- Table (data table with sorting/filtering support)
+- Toast/Notification (notification system)
+- Rich content pieces for Tooltip/Popover variants
+- Date Range Picker (range selection on calendar)
+- File Upload (with status tracking and accepted types)
+
+Note: Several items can be implemented quickly with Radix or existing libraries (e.g., Switch, Radio Group, Select). Prioritize based on product needs, accessibility (a11y), and reuse frequency.
+
+## Contribution & Development Notes
+- Code style and rules: ESLint, strict TypeScript settings, and React Hooks rules are enabled.
+- Writing stories: For every new component, add a .stories.tsx file covering basic and edge cases.
+- Accessibility: Follow a11y best practices of Radix UI primitives; validate role/aria attributes.
+- Testing: Prefer Storybook interaction tests and add unit/interaction tests with vitest where applicable.
+
+## Attribution
+This project was created for Socore Tech. and developed by Ebubekir Yazgan (yazganebubekir4@gmail.com, @_bekiryazgann). Corporate homepage: https://socore.net
