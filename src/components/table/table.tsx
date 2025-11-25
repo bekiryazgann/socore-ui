@@ -1,7 +1,7 @@
 import * as React from "react"
 import { cn } from "../../lib/utils"
 
-function Table({ className, ...props }: React.ComponentProps<"table">) {
+function TableRoot({ className, ...props }: React.ComponentProps<"table">) {
     return (
         <div
             data-slot="table-container"
@@ -98,13 +98,16 @@ function TableCaption({className, ...props}: React.ComponentProps<"caption">) {
     )
 }
 
+const Table = Object.assign(TableRoot, {
+    Header: TableHeader,
+    Body: TableBody,
+    Footer: TableFooter,
+    Head: TableHead,
+    Row: TableRow,
+    Cell: TableCell,
+    Caption: TableCaption
+})
+
 export {
-    Table,
-    TableHeader,
-    TableBody,
-    TableFooter,
-    TableHead,
-    TableRow,
-    TableCell,
-    TableCaption,
+    Table
 }

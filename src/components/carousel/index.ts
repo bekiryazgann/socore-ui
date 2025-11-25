@@ -1,1 +1,1 @@
-export {Carousel, type CarouselApi, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious} from './carousel'
+export {Carousel, type CarouselApi} from './carousel'

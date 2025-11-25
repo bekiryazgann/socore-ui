@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { Drawer, DrawerClose, DrawerContent, DrawerDescription, DrawerFooter, DrawerHeader, DrawerTitle, DrawerTrigger } from './drawer';
+import { Drawer } from './drawer';
 import { Button } from '../button';
 import {Minus, Plus} from "lucide-react";
 
@@ -19,15 +19,15 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
     render: () => (
         <Drawer>
-            <DrawerTrigger asChild>
+            <Drawer.Trigger asChild>
                 <Button variant="outline">Open Drawer</Button>
-            </DrawerTrigger>
-            <DrawerContent>
+            </Drawer.Trigger>
+            <Drawer.Content>
                 <div className="mx-auto w-full max-w-sm">
-                    <DrawerHeader>
-                        <DrawerTitle>Move Goal</DrawerTitle>
-                        <DrawerDescription>Set your daily activity goal.</DrawerDescription>
-                    </DrawerHeader>
+                    <Drawer.Header>
+                        <Drawer.Title>Move Goal</Drawer.Title>
+                        <Drawer.Description>Set your daily activity goal.</Drawer.Description>
+                    </Drawer.Header>
                     <div className="p-4 pb-0">
                         <div className="flex items-center justify-center space-x-2">
                             <Button
@@ -56,14 +56,14 @@ export const Default: Story = {
                             </Button>
                         </div>
                     </div>
-                    <DrawerFooter>
+                    <Drawer.Footer>
                         <Button>Submit</Button>
-                        <DrawerClose asChild>
+                        <Drawer.Close asChild>
                             <Button variant="outline">Cancel</Button>
-                        </DrawerClose>
-                    </DrawerFooter>
+                        </Drawer.Close>
+                    </Drawer.Footer>
                 </div>
-            </DrawerContent>
+            </Drawer.Content>
         </Drawer>
     )
 }

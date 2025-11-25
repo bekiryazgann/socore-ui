@@ -1,14 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import {
-    Select,
-    SelectContent,
-    SelectGroup,
-    SelectItem,
-    SelectLabel,
-    SelectTrigger,
-    SelectValue,
-} from './select';
+import {Select} from './select';
 
 const meta = {
     title: '@socore/select',
@@ -24,19 +16,19 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
     render: () => (
         <Select>
-            <SelectTrigger className="w-[180px]">
-                <SelectValue placeholder="Select a fruit" />
-            </SelectTrigger>
-            <SelectContent>
-                <SelectGroup>
-                    <SelectLabel>Fruits</SelectLabel>
-                    <SelectItem value="apple">Apple</SelectItem>
-                    <SelectItem value="banana">Banana</SelectItem>
-                    <SelectItem value="blueberry">Blueberry</SelectItem>
-                    <SelectItem value="grapes">Grapes</SelectItem>
-                    <SelectItem value="pineapple">Pineapple</SelectItem>
-                </SelectGroup>
-            </SelectContent>
+            <Select.Trigger className="w-[180px]">
+                <Select.Value placeholder="Select a fruit" />
+            </Select.Trigger>
+            <Select.Content>
+                <Select.Group>
+                    <Select.Label>Fruits</Select.Label>
+                    <Select.Item value="apple">Apple</Select.Item>
+                    <Select.Item value="banana">Banana</Select.Item>
+                    <Select.Item value="blueberry">Blueberry</Select.Item>
+                    <Select.Item value="grapes">Grapes</Select.Item>
+                    <Select.Item value="pineapple">Pineapple</Select.Item>
+                </Select.Group>
+            </Select.Content>
         </Select>
     )
 }

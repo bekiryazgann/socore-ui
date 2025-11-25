@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { Card, CardHeader, CardFooter, CardDescription, CardAction, CardContent, CardTitle } from './card';
+import { Card } from './card';
 import { Label } from '../label';
 import { Button } from '../button';
 import { Input } from '../input';
@@ -20,16 +20,16 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
     render: () => (
         <Card className="w-sm">
-            <CardHeader>
-                <CardTitle>Login to your account</CardTitle>
-                <CardDescription>
+            <Card.Header>
+                <Card.Title>Login to your account</Card.Title>
+                <Card.Description>
                     Enter your email below to login to your account
-                </CardDescription>
-                <CardAction>
+                </Card.Description>
+                <Card.Action>
                     <Button variant="link">Sign Up</Button>
-                </CardAction>
-            </CardHeader>
-            <CardContent>
+                </Card.Action>
+            </Card.Header>
+            <Card.Content>
                 <form>
                     <div className="flex flex-col gap-6">
                         <div className="grid gap-2">
@@ -55,15 +55,15 @@ export const Default: Story = {
                         </div>
                     </div>
                 </form>
-            </CardContent>
-            <CardFooter className="flex-col gap-2">
+            </Card.Content>
+            <Card.Footer className="flex-col gap-2">
                 <Button type="submit" className="w-full">
                     Login
                 </Button>
                 <Button variant="outline" className="w-full">
                     Login with Google
                 </Button>
-            </CardFooter>
+            </Card.Footer>
         </Card>
     )
 }

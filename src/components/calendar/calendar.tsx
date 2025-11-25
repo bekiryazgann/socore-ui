@@ -11,7 +11,7 @@ import { DayButton, DayPicker, getDefaultClassNames } from "react-day-picker"
 import { cn } from "../../lib/utils"
 import { Button, buttonVariants } from "../button"
 
-function Calendar({
+function CalendarRoot({
                       className,
                       classNames,
                       showOutsideDays = true,
@@ -213,4 +213,8 @@ function CalendarDayButton({
     )
 }
 
-export { Calendar, CalendarDayButton }
+const Calendar = Object.assign(CalendarRoot, {
+    DayButton: CalendarDayButton,
+})
+
+export { Calendar }

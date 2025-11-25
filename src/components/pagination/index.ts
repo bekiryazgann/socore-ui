@@ -1,9 +1,1 @@
-export {
-    Pagination,
-    PaginationContent,
-    PaginationLink,
-    PaginationItem,
-    PaginationPrevious,
-    PaginationNext,
-    PaginationEllipsis,
-} from './pagination'
+export {Pagination} from './pagination'

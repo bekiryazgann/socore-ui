@@ -21,7 +21,7 @@ const buttonGroupVariants = cva(
     }
 )
 
-function ButtonGroup({
+function ButtonGroupRoot({
                          className,
                          orientation,
                          ...props
@@ -75,10 +75,13 @@ function ButtonGroupSeparator({
     )
 }
 
+const ButtonGroup = Object.assign(ButtonGroupRoot, {
+    Separator: ButtonGroupSeparator,
+    Text: ButtonGroupText,
+})
+
 export {
     ButtonGroup,
-    ButtonGroupSeparator,
-    ButtonGroupText,
     // eslint-disable-next-line react-refresh/only-export-components
     buttonGroupVariants,
 }

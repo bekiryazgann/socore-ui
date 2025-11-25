@@ -1,8 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import {
-    Item, ItemContent, ItemTitle, ItemDescription, ItemActions, ItemMedia,
-} from "./item"
+import {Item} from "./item"
 import {Button} from "../button";
 import {BadgeCheckIcon, ChevronRightIcon} from "lucide-react";
 
@@ -22,29 +20,29 @@ export const Default: Story = {
     render: () => (
         <div className="flex w-full max-w-md flex-col gap-6">
             <Item variant="outline">
-                <ItemContent>
-                    <ItemTitle>Basic Item</ItemTitle>
-                    <ItemDescription>
+                <Item.Content>
+                    <Item.Title>Basic Item</Item.Title>
+                    <Item.Description>
                         A simple item with title and description.
-                    </ItemDescription>
-                </ItemContent>
-                <ItemActions>
+                    </Item.Description>
+                </Item.Content>
+                <Item.Actions>
                     <Button variant="outline" size="sm">
                         Action
                     </Button>
-                </ItemActions>
+                </Item.Actions>
             </Item>
             <Item variant="outline" size="sm" asChild>
                 <a className='flex items-center gap-2 cursor-pointer'>
-                    <ItemMedia>
+                    <Item.Media>
                         <BadgeCheckIcon className="size-5" />
-                    </ItemMedia>
-                    <ItemContent>
-                        <ItemTitle>Your profile has been verified.</ItemTitle>
-                    </ItemContent>
-                    <ItemActions>
+                    </Item.Media>
+                    <Item.Content>
+                        <Item.Title>Your profile has been verified.</Item.Title>
+                    </Item.Content>
+                    <Item.Actions>
                         <ChevronRightIcon className="size-4" />
-                    </ItemActions>
+                    </Item.Actions>
                 </a>
             </Item>
         </div>

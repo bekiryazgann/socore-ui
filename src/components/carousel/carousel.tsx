@@ -40,7 +40,7 @@ function useCarousel() {
     return context
 }
 
-function Carousel({
+function CarouselRoot({
                       orientation = "horizontal",
                       opts,
                       setApi,
@@ -229,11 +229,14 @@ function CarouselNext({
     )
 }
 
+const Carousel = Object.assign(CarouselRoot, {
+    Content: CarouselContent,
+    Item: CarouselItem,
+    Previous: CarouselPrevious,
+    Next: CarouselNext,
+})
+
 export {
     type CarouselApi,
-    Carousel,
-    CarouselContent,
-    CarouselItem,
-    CarouselPrevious,
-    CarouselNext,
+    Carousel
 }

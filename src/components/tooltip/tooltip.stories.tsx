@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import {TooltipTrigger, TooltipContent, Tooltip} from './tooltip';
+import {Tooltip} from './tooltip';
 import {Button} from '../button';
 
 const meta = {
@@ -17,12 +17,12 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
     render: () => (
         <Tooltip>
-            <TooltipTrigger asChild>
+            <Tooltip.Trigger asChild>
                 <Button variant="outline">Hover</Button>
-            </TooltipTrigger>
-            <TooltipContent>
+            </Tooltip.Trigger>
+            <Tooltip.Content>
                 <p>Add to library</p>
-            </TooltipContent>
+            </Tooltip.Content>
         </Tooltip>
     )
 }

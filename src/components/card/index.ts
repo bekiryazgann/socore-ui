@@ -1,9 +1,3 @@
 export {
-    Card,
-    CardContent,
-    CardAction,
-    CardDescription,
-    CardFooter,
-    CardHeader,
-    CardTitle
+    Card
 } from './card'

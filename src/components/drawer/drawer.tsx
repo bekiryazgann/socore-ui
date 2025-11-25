@@ -1,13 +1,13 @@
 "use client"
 
 import * as React from "react"
-import { Drawer as DrawerPrimitive } from "vaul"
+import {Drawer as DrawerPrimitive} from "vaul"
 
-import { cn } from "../../lib/utils"
+import {cn} from "../../lib/utils"
 
-function Drawer({
-                    ...props
-                }: React.ComponentProps<typeof DrawerPrimitive.Root>) {
+function DrawerRoot({
+                        ...props
+                    }: React.ComponentProps<typeof DrawerPrimitive.Root>) {
     return <DrawerPrimitive.Root data-slot="drawer" {...props} />
 }
 
@@ -52,7 +52,7 @@ function DrawerContent({
                        }: React.ComponentProps<typeof DrawerPrimitive.Content>) {
     return (
         <DrawerPortal data-slot="drawer-portal">
-            <DrawerOverlay />
+            <DrawerOverlay/>
             <DrawerPrimitive.Content
                 data-slot="drawer-content"
                 className={cn(
@@ -65,14 +65,15 @@ function DrawerContent({
                 )}
                 {...props}
             >
-                <div className="bg-muted mx-auto mt-4 hidden h-2 w-[100px] shrink-0 rounded-full group-data-[vaul-drawer-direction=bottom]/drawer-content:block" />
+                <div
+                    className="bg-muted mx-auto mt-4 hidden h-2 w-[100px] shrink-0 rounded-full group-data-[vaul-drawer-direction=bottom]/drawer-content:block"/>
                 {children}
             </DrawerPrimitive.Content>
         </DrawerPortal>
     )
 }
 
-function DrawerHeader({ className, ...props }: React.ComponentProps<"div">) {
+function DrawerHeader({className, ...props}: React.ComponentProps<"div">) {
     return (
         <div
             data-slot="drawer-header"
@@ -85,7 +86,7 @@ function DrawerHeader({ className, ...props }: React.ComponentProps<"div">) {
     )
 }
 
-function DrawerFooter({ className, ...props }: React.ComponentProps<"div">) {
+function DrawerFooter({className, ...props}: React.ComponentProps<"div">) {
     return (
         <div
             data-slot="drawer-footer"
@@ -121,15 +122,16 @@ function DrawerDescription({
     )
 }
 
-export {
-    Drawer,
-    DrawerPortal,
-    DrawerOverlay,
-    DrawerTrigger,
-    DrawerClose,
-    DrawerContent,
-    DrawerHeader,
-    DrawerFooter,
-    DrawerTitle,
-    DrawerDescription,
-}
+const Drawer = Object.assign(DrawerRoot, {
+    Portal: DrawerPortal,
+    Overlay: DrawerOverlay,
+    Trigger: DrawerTrigger,
+    Close: DrawerClose,
+    Content: DrawerContent,
+    Header: DrawerHeader,
+    Footer: DrawerFooter,
+    Title: DrawerTitle,
+    Description: DrawerDescription,
+})
+
+export {Drawer}

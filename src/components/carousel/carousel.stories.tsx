@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import { Card, CardContent } from '../card';
-import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from './carousel';
+import { Carousel } from './carousel';
 
 
 const meta = {
@@ -18,9 +18,9 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
     render: () => (
         <Carousel className="w-full max-w-xs">
-            <CarouselContent>
+            <Carousel.Content>
                 {Array.from({ length: 5 }).map((_, index) => (
-                    <CarouselItem key={index}>
+                    <Carousel.Item key={index}>
                         <div className="p-1">
                             <Card>
                                 <CardContent className="flex aspect-square items-center justify-center p-6">
@@ -28,11 +28,11 @@ export const Default: Story = {
                                 </CardContent>
                             </Card>
                         </div>
-                    </CarouselItem>
+                    </Carousel.Item>
                 ))}
-            </CarouselContent>
-            <CarouselPrevious />
-            <CarouselNext />
+            </Carousel.Content>
+            <Carousel.Previous />
+            <Carousel.Next />
         </Carousel>
     )
 }

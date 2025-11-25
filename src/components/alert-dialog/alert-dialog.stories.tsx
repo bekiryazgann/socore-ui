@@ -1,16 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import {
-    AlertDialog,
-    AlertDialogAction,
-    AlertDialogCancel,
-    AlertDialogContent,
-    AlertDialogDescription,
-    AlertDialogFooter,
-    AlertDialogHeader,
-    AlertDialogTitle,
-    AlertDialogTrigger
-} from './alert-dialog';
+import {AlertDialog} from './alert-dialog';
 import {Button} from "../button";
 
 
@@ -29,24 +19,24 @@ export const Default: Story = {
     render: () => (
         <div className='w-lg flex items-center justify-center'>
             <AlertDialog>
-                <AlertDialogTrigger>
+                <AlertDialog.Trigger>
                     <Button>
                         Open
                     </Button>
-                </AlertDialogTrigger>
-                <AlertDialogContent>
-                    <AlertDialogHeader>
-                        <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
-                        <AlertDialogDescription>
+                </AlertDialog.Trigger>
+                <AlertDialog.Content>
+                    <AlertDialog.Header>
+                        <AlertDialog.Title>Are you absolutely sure?</AlertDialog.Title>
+                        <AlertDialog.Description>
                             This action cannot be undone. This will permanently delete your account
                             and remove your data from our servers.
-                        </AlertDialogDescription>
-                    </AlertDialogHeader>
-                    <AlertDialogFooter>
-                        <AlertDialogCancel>Cancel</AlertDialogCancel>
-                        <AlertDialogAction>Continue</AlertDialogAction>
-                    </AlertDialogFooter>
-                </AlertDialogContent>
+                        </AlertDialog.Description>
+                    </AlertDialog.Header>
+                    <AlertDialog.Footer>
+                        <AlertDialog.Cancel>Cancel</AlertDialog.Cancel>
+                        <AlertDialog.Action>Continue</AlertDialog.Action>
+                    </AlertDialog.Footer>
+                </AlertDialog.Content>
             </AlertDialog>
         </div>
     )

@@ -8,13 +8,7 @@ import { cn } from "../../lib/utils"
 import { Button } from "../button"
 import { Input } from "../input"
 import { Separator } from "../separator"
-import {
-    Sheet,
-    SheetContent,
-    SheetDescription,
-    SheetHeader,
-    SheetTitle,
-} from "../sheet"
+import {Sheet} from "../sheet"
 import { Skeleton } from "../skeleton"
 import {
     Tooltip,
@@ -149,7 +143,7 @@ function SidebarProvider({
     )
 }
 
-function Sidebar({
+function SidebarRoot({
                      side = "left",
                      variant = "sidebar",
                      collapsible = "offcanvas",
@@ -181,7 +175,7 @@ function Sidebar({
     if (isMobile) {
         return (
             <Sheet open={openMobile} onOpenChange={setOpenMobile} {...props}>
-                <SheetContent
+                <Sheet.Content
                     data-sidebar="sidebar"
                     data-slot="sidebar"
                     data-mobile="true"
@@ -193,12 +187,12 @@ function Sidebar({
                     }
                     side={side}
                 >
-                    <SheetHeader className="sr-only">
-                        <SheetTitle>Sidebar</SheetTitle>
-                        <SheetDescription>Displays the mobile sidebar.</SheetDescription>
-                    </SheetHeader>
+                    <Sheet.Header className="sr-only">
+                        <Sheet.Title>Sidebar</Sheet.Title>
+                        <Sheet.Description>Displays the mobile sidebar.</Sheet.Description>
+                    </Sheet.Header>
                     <div className="flex h-full w-full flex-col">{children}</div>
-                </SheetContent>
+                </Sheet.Content>
             </Sheet>
         )
     }
@@ -697,30 +691,33 @@ function SidebarMenuSubButton({
     )
 }
 
+const Sidebar = Object.assign(SidebarRoot, {
+    Content: SidebarContent,
+    Footer: SidebarFooter,
+    Group: SidebarGroup,
+    GroupAction: SidebarGroupAction,
+    GroupContent: SidebarGroupContent,
+    GroupLabel: SidebarGroupLabel,
+    Header: SidebarHeader,
+    Input: SidebarInput,
+    Inset: SidebarInset,
+    Menu: SidebarMenu,
+    MenuAction: SidebarMenuAction,
+    MenuBadge: SidebarMenuBadge,
+    MenuButton: SidebarMenuButton,
+    MenuItem: SidebarMenuItem,
+    MenuSkeleton: SidebarMenuSkeleton,
+    MenuSub: SidebarMenuSub,
+    MenuSubButton: SidebarMenuSubButton,
+    MenuSubItem: SidebarMenuSubItem,
+    Provider: SidebarProvider,
+    Rail: SidebarRail,
+    Separator: SidebarSeparator,
+    Trigger: SidebarTrigger,
+})
+
 export {
     Sidebar,
-    SidebarContent,
-    SidebarFooter,
-    SidebarGroup,
-    SidebarGroupAction,
-    SidebarGroupContent,
-    SidebarGroupLabel,
-    SidebarHeader,
-    SidebarInput,
-    SidebarInset,
-    SidebarMenu,
-    SidebarMenuAction,
-    SidebarMenuBadge,
-    SidebarMenuButton,
-    SidebarMenuItem,
-    SidebarMenuSkeleton,
-    SidebarMenuSub,
-    SidebarMenuSubButton,
-    SidebarMenuSubItem,
-    SidebarProvider,
-    SidebarRail,
-    SidebarSeparator,
-    SidebarTrigger,
     // eslint-disable-next-line react-refresh/only-export-components
     useSidebar,
 }

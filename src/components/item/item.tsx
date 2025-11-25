@@ -51,7 +51,7 @@ const itemVariants = cva(
     }
 )
 
-function Item({
+function ItemRoot({
                   className,
                   variant = "default",
                   size = "default",
@@ -179,15 +179,16 @@ function ItemFooter({ className, ...props }: React.ComponentProps<"div">) {
     )
 }
 
-export {
-    Item,
-    ItemMedia,
-    ItemContent,
-    ItemActions,
-    ItemGroup,
-    ItemSeparator,
-    ItemTitle,
-    ItemDescription,
-    ItemHeader,
-    ItemFooter,
-}
+const Item = Object.assign(ItemRoot, {
+    Media: ItemMedia,
+    Content: ItemContent,
+    Title: ItemTitle,
+    Description: ItemDescription,
+    Actions: ItemActions,
+    Header: ItemHeader,
+    Footer: ItemFooter,
+    Group: ItemGroup,
+    Separator: ItemSeparator,
+})
+
+export {Item}

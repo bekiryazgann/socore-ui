@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from '@storybook/react-vite';
 
-import {Table, TableCaption, TableCell, TableHead, TableHeader, TableFooter, TableRow, TableBody} from './table';
+import { Table } from './table';
 
 const meta = {
     title: '@socore/table',
@@ -58,31 +58,31 @@ const invoices = [
 export const Default: Story = {
     render: () => (
         <Table>
-            <TableCaption>A list of your recent invoices.</TableCaption>
-            <TableHeader>
-                <TableRow>
-                    <TableHead className="w-[100px]">Invoice</TableHead>
-                    <TableHead>Status</TableHead>
-                    <TableHead>Method</TableHead>
-                    <TableHead className="text-right">Amount</TableHead>
-                </TableRow>
-            </TableHeader>
-            <TableBody>
+            <Table.Caption>A list of your recent invoices.</Table.Caption>
+            <Table.Header>
+                <Table.Row>
+                    <Table.Head className="w-[100px]">Invoice</Table.Head>
+                    <Table.Head>Status</Table.Head>
+                    <Table.Head>Method</Table.Head>
+                    <Table.Head className="text-right">Amount</Table.Head>
+                </Table.Row>
+            </Table.Header>
+            <Table.Body>
                 {invoices.map((invoice) => (
-                    <TableRow key={invoice.invoice}>
-                        <TableCell className="font-medium">{invoice.invoice}</TableCell>
-                        <TableCell>{invoice.paymentStatus}</TableCell>
-                        <TableCell>{invoice.paymentMethod}</TableCell>
-                        <TableCell className="text-right">{invoice.totalAmount}</TableCell>
-                    </TableRow>
+                    <Table.Row key={invoice.invoice}>
+                        <Table.Cell className="font-medium">{invoice.invoice}</Table.Cell>
+                        <Table.Cell>{invoice.paymentStatus}</Table.Cell>
+                        <Table.Cell>{invoice.paymentMethod}</Table.Cell>
+                        <Table.Cell className="text-right">{invoice.totalAmount}</Table.Cell>
+                    </Table.Row>
                 ))}
-            </TableBody>
-            <TableFooter>
-                <TableRow>
-                    <TableCell colSpan={3}>Total</TableCell>
-                    <TableCell className="text-right">$2,500.00</TableCell>
-                </TableRow>
-            </TableFooter>
+            </Table.Body>
+            <Table.Footer>
+                <Table.Row>
+                    <Table.Cell colSpan={3}>Total</Table.Cell>
+                    <Table.Cell className="text-right">$2,500.00</Table.Cell>
+                </Table.Row>
+            </Table.Footer>
         </Table>
     )
 }

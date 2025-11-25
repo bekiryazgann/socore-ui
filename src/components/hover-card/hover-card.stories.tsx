@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import {HoverCard, HoverCardTrigger, HoverCardContent} from './hover-card';
+import { HoverCard } from './hover-card';
 import { Button } from '../button';
 
 
@@ -18,10 +18,10 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
     render: () => (
         <HoverCard>
-            <HoverCardTrigger asChild>
+            <HoverCard.Trigger asChild>
                 <Button variant="link">@nextjs</Button>
-            </HoverCardTrigger>
-            <HoverCardContent className="w-80">
+            </HoverCard.Trigger>
+            <HoverCard.Content className="w-80">
                 <div className="flex justify-between gap-4">
                     <div className='w-10 h-10 bg-gray-300 rounded-full aspect-square'>
 
@@ -36,7 +36,7 @@ export const Default: Story = {
                         </div>
                     </div>
                 </div>
-            </HoverCardContent>
+            </HoverCard.Content>
         </HoverCard>
     )
 }

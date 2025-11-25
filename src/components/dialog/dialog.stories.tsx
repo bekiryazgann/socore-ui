@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { Dialog, DialogTrigger, DialogHeader, DialogFooter, DialogTitle, DialogContent, DialogDescription, DialogClose} from './dialog';
+import { Dialog } from './dialog';
 import { Button } from '../button';
 import { Input } from '../input';
 import { Label } from '../label';
@@ -21,17 +21,17 @@ export const Default: Story = {
     render: () => (
         <Dialog>
             <form>
-                <DialogTrigger asChild>
+                <Dialog.Trigger asChild>
                     <Button variant="outline">Open Dialog</Button>
-                </DialogTrigger>
-                <DialogContent className="sm:max-w-[425px]">
-                    <DialogHeader>
-                        <DialogTitle>Edit profile</DialogTitle>
-                        <DialogDescription>
+                </Dialog.Trigger>
+                <Dialog.Content className="sm:max-w-[425px]">
+                    <Dialog.Header>
+                        <Dialog.Title>Edit profile</Dialog.Title>
+                        <Dialog.Description>
                             Make changes to your profile here. Click save when you&apos;re
                             done.
-                        </DialogDescription>
-                    </DialogHeader>
+                        </Dialog.Description>
+                    </Dialog.Header>
                     <div className="grid gap-4">
                         <div className="grid gap-3">
                             <Label htmlFor="name-1">Name</Label>
@@ -42,13 +42,13 @@ export const Default: Story = {
                             <Input id="username-1" name="username" defaultValue="@peduarte" />
                         </div>
                     </div>
-                    <DialogFooter>
-                        <DialogClose asChild>
+                    <Dialog.Footer>
+                        <Dialog.Close asChild>
                             <Button variant="outline">Cancel</Button>
-                        </DialogClose>
+                        </Dialog.Close>
                         <Button type="submit">Save changes</Button>
-                    </DialogFooter>
-                </DialogContent>
+                    </Dialog.Footer>
+                </Dialog.Content>
             </form>
         </Dialog>
     )

@@ -1,1 +1,1 @@
-export { HoverCard, HoverCardTrigger, HoverCardContent } from './hover-card'
+export { HoverCard } from './hover-card'

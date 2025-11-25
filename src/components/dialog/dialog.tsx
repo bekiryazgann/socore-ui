@@ -6,7 +6,7 @@ import { XIcon } from "lucide-react"
 
 import { cn } from "../../lib/utils"
 
-function Dialog({
+function DialogRoot({
                     ...props
                 }: React.ComponentProps<typeof DialogPrimitive.Root>) {
     return <DialogPrimitive.Root data-slot="dialog" {...props} />
@@ -129,15 +129,16 @@ function DialogDescription({
     )
 }
 
-export {
-    Dialog,
-    DialogClose,
-    DialogContent,
-    DialogDescription,
-    DialogFooter,
-    DialogHeader,
-    DialogOverlay,
-    DialogPortal,
-    DialogTitle,
-    DialogTrigger,
-}
+const Dialog = Object.assign(DialogRoot, {
+    Portal: DialogPortal,
+    Overlay: DialogOverlay,
+    Trigger: DialogTrigger,
+    Close: DialogClose,
+    Content: DialogContent,
+    Header: DialogHeader,
+    Footer: DialogFooter,
+    Title: DialogTitle,
+    Description: DialogDescription,
+})
+
+export {Dialog}

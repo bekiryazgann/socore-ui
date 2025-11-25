@@ -1,13 +1,13 @@
 import * as React from "react"
 import * as MenubarPrimitive from "@radix-ui/react-menubar"
-import { CheckIcon, ChevronRightIcon, CircleIcon } from "lucide-react"
+import {CheckIcon, ChevronRightIcon, CircleIcon} from "lucide-react"
 
-import { cn } from "../../lib/utils"
+import {cn} from "../../lib/utils"
 
-function Menubar({
-                     className,
-                     ...props
-                 }: React.ComponentProps<typeof MenubarPrimitive.Root>) {
+function MenubarRoot({
+                         className,
+                         ...props
+                     }: React.ComponentProps<typeof MenubarPrimitive.Root>) {
     return (
         <MenubarPrimitive.Root
             data-slot="menubar"
@@ -127,7 +127,7 @@ function MenubarCheckboxItem({
         >
       <span className="pointer-events-none absolute left-2 flex size-3.5 items-center justify-center">
         <MenubarPrimitive.ItemIndicator>
-          <CheckIcon className="size-4" />
+          <CheckIcon className="size-4"/>
         </MenubarPrimitive.ItemIndicator>
       </span>
             {children}
@@ -151,7 +151,7 @@ function MenubarRadioItem({
         >
       <span className="pointer-events-none absolute left-2 flex size-3.5 items-center justify-center">
         <MenubarPrimitive.ItemIndicator>
-          <CircleIcon className="size-2 fill-current" />
+          <CircleIcon className="size-2 fill-current"/>
         </MenubarPrimitive.ItemIndicator>
       </span>
             {children}
@@ -233,7 +233,7 @@ function MenubarSubTrigger({
             {...props}
         >
             {children}
-            <ChevronRightIcon className="ml-auto h-4 w-4" />
+            <ChevronRightIcon className="ml-auto h-4 w-4"/>
         </MenubarPrimitive.SubTrigger>
     )
 }
@@ -254,21 +254,22 @@ function MenubarSubContent({
     )
 }
 
-export {
-    Menubar,
-    MenubarPortal,
-    MenubarMenu,
-    MenubarTrigger,
-    MenubarContent,
-    MenubarGroup,
-    MenubarSeparator,
-    MenubarLabel,
-    MenubarItem,
-    MenubarShortcut,
-    MenubarCheckboxItem,
-    MenubarRadioGroup,
-    MenubarRadioItem,
-    MenubarSub,
-    MenubarSubTrigger,
-    MenubarSubContent,
-}
+const Menubar = Object.assign(MenubarRoot, {
+    Portal: MenubarPortal,
+    Menu: MenubarMenu,
+    Trigger: MenubarTrigger,
+    Content: MenubarContent,
+    Group: MenubarGroup,
+    Separator: MenubarSeparator,
+    Label: MenubarLabel,
+    Item: MenubarItem,
+    Shortcut: MenubarShortcut,
+    CheckboxItem: MenubarCheckboxItem,
+    RadioGroup: MenubarRadioGroup,
+    RadioItem: MenubarRadioItem,
+    Sub: MenubarSub,
+    SubTrigger: MenubarSubTrigger,
+    SubContent: MenubarSubContent,
+})
+
+export {Menubar}

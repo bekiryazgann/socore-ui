@@ -2,20 +2,8 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { IconCheck, IconInfoCircle, IconPlus } from "@tabler/icons-react"
 import { ArrowUpIcon, Search } from "lucide-react"
 
-import {
-    DropdownMenu,
-    DropdownMenuContent,
-    DropdownMenuItem,
-    DropdownMenuTrigger,
-} from "../dropdown-menu"
-import {
-    InputGroup,
-    InputGroupAddon,
-    InputGroupButton,
-    InputGroupInput,
-    InputGroupText,
-    InputGroupTextarea,
-} from "../input-group"
+import {DropdownMenu} from "../dropdown-menu"
+import {InputGroup} from "./input-group"
 import { Separator } from "../separator"
 import { Tooltip, TooltipContent, TooltipTrigger } from "../tooltip"
 
@@ -35,55 +23,55 @@ export const Default: Story = {
     render: () => (
         <div className="grid w-full max-w-sm gap-6">
             <InputGroup>
-                <InputGroupInput placeholder="Search..." />
-                <InputGroupAddon>
+                <InputGroup.Input placeholder="Search..." />
+                <InputGroup.Addon>
                     <Search />
-                </InputGroupAddon>
-                <InputGroupAddon align="inline-end">12 results</InputGroupAddon>
+                </InputGroup.Addon>
+                <InputGroup.Addon align="inline-end">12 results</InputGroup.Addon>
             </InputGroup>
             <InputGroup>
-                <InputGroupInput placeholder="example.com" className="!pl-1" />
-                <InputGroupAddon>
-                    <InputGroupText>https://</InputGroupText>
-                </InputGroupAddon>
-                <InputGroupAddon align="inline-end">
+                <InputGroup.Input placeholder="example.com" className="!pl-1" />
+                <InputGroup.Addon>
+                    <InputGroup.Text>https://</InputGroup.Text>
+                </InputGroup.Addon>
+                <InputGroup.Addon align="inline-end">
                     <Tooltip>
                         <TooltipTrigger asChild>
-                            <InputGroupButton className="rounded-full" size="icon-xs">
+                            <InputGroup.Button className="rounded-full" size="icon-xs">
                                 <IconInfoCircle />
-                            </InputGroupButton>
+                            </InputGroup.Button>
                         </TooltipTrigger>
                         <TooltipContent>This is content in a tooltip.</TooltipContent>
                     </Tooltip>
-                </InputGroupAddon>
+                </InputGroup.Addon>
             </InputGroup>
             <InputGroup>
-                <InputGroupTextarea placeholder="Ask, Search or Chat..." />
-                <InputGroupAddon align="block-end">
-                    <InputGroupButton
+                <InputGroup.Textarea placeholder="Ask, Search or Chat..." />
+                <InputGroup.Addon align="block-end">
+                    <InputGroup.Button
                         variant="outline"
                         className="rounded-full"
                         size="icon-xs"
                     >
                         <IconPlus />
-                    </InputGroupButton>
+                    </InputGroup.Button>
                     <DropdownMenu>
-                        <DropdownMenuTrigger asChild>
-                            <InputGroupButton variant="ghost">Auto</InputGroupButton>
-                        </DropdownMenuTrigger>
-                        <DropdownMenuContent
+                        <DropdownMenu.Trigger asChild>
+                            <InputGroup.Button variant="ghost">Auto</InputGroup.Button>
+                        </DropdownMenu.Trigger>
+                        <DropdownMenu.Content
                             side="top"
                             align="start"
                             className="[--radius:0.95rem]"
                         >
-                            <DropdownMenuItem>Auto</DropdownMenuItem>
-                            <DropdownMenuItem>Agent</DropdownMenuItem>
-                            <DropdownMenuItem>Manual</DropdownMenuItem>
-                        </DropdownMenuContent>
+                            <DropdownMenu.Item>Auto</DropdownMenu.Item>
+                            <DropdownMenu.Item>Agent</DropdownMenu.Item>
+                            <DropdownMenu.Item>Manual</DropdownMenu.Item>
+                        </DropdownMenu.Content>
                     </DropdownMenu>
-                    <InputGroupText className="ml-auto">52% used</InputGroupText>
+                    <InputGroup.Text className="ml-auto">52% used</InputGroup.Text>
                     <Separator orientation="vertical" className="!h-4" />
-                    <InputGroupButton
+                    <InputGroup.Button
                         variant="default"
                         className="rounded-full"
                         size="icon-xs"
@@ -91,16 +79,16 @@ export const Default: Story = {
                     >
                         <ArrowUpIcon />
                         <span className="sr-only">Send</span>
-                    </InputGroupButton>
-                </InputGroupAddon>
+                    </InputGroup.Button>
+                </InputGroup.Addon>
             </InputGroup>
             <InputGroup>
-                <InputGroupInput placeholder="@shadcn" />
-                <InputGroupAddon align="inline-end">
+                <InputGroup.Input placeholder="@shadcn" />
+                <InputGroup.Addon align="inline-end">
                     <div className="bg-primary text-primary-foreground flex size-4 items-center justify-center rounded-full">
                         <IconCheck className="size-3" />
                     </div>
-                </InputGroupAddon>
+                </InputGroup.Addon>
             </InputGroup>
         </div>
     )

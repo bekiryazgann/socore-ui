@@ -5,10 +5,10 @@ import {
     MoreHorizontalIcon,
 } from "lucide-react"
 
-import { cn } from "../../lib/utils"
-import { Button, buttonVariants } from "../button"
+import {cn} from "../../lib/utils"
+import {Button, buttonVariants} from "../button"
 
-function Pagination({ className, ...props }: React.ComponentProps<"nav">) {
+function PaginationRoot({className, ...props}: React.ComponentProps<"nav">) {
     return (
         <nav
             role="navigation"
@@ -33,7 +33,7 @@ function PaginationContent({
     )
 }
 
-function PaginationItem({ ...props }: React.ComponentProps<"li">) {
+function PaginationItem({...props}: React.ComponentProps<"li">) {
     return <li data-slot="pagination-item" {...props} />
 }
 
@@ -76,7 +76,7 @@ function PaginationPrevious({
             className={cn("gap-1 px-2.5 sm:pl-2.5", className)}
             {...props}
         >
-            <ChevronLeftIcon />
+            <ChevronLeftIcon/>
             <span className="hidden sm:block">Previous</span>
         </PaginationLink>
     )
@@ -94,7 +94,7 @@ function PaginationNext({
             {...props}
         >
             <span className="hidden sm:block">Next</span>
-            <ChevronRightIcon />
+            <ChevronRightIcon/>
         </PaginationLink>
     )
 }
@@ -110,18 +110,19 @@ function PaginationEllipsis({
             className={cn("flex size-9 items-center justify-center", className)}
             {...props}
         >
-      <MoreHorizontalIcon className="size-4" />
+      <MoreHorizontalIcon className="size-4"/>
       <span className="sr-only">More pages</span>
     </span>
     )
 }
 
-export {
-    Pagination,
-    PaginationContent,
-    PaginationLink,
-    PaginationItem,
-    PaginationPrevious,
-    PaginationNext,
-    PaginationEllipsis,
-}
+const Pagination = Object.assign(PaginationRoot, {
+    Content: PaginationContent,
+    Link: PaginationLink,
+    Item: PaginationItem,
+    Previous: PaginationPrevious,
+    Next: PaginationNext,
+    Ellipsis: PaginationEllipsis,
+})
+
+export {Pagination}

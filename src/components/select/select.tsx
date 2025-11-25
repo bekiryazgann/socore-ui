@@ -1,12 +1,10 @@
-"use client"
-
 import * as React from "react"
 import * as SelectPrimitive from "@radix-ui/react-select"
 import { CheckIcon, ChevronDownIcon, ChevronUpIcon } from "lucide-react"
 
 import { cn } from "../../lib/utils"
 
-function Select({...props}: React.ComponentProps<typeof SelectPrimitive.Root>) {
+function SelectRoot({...props}: React.ComponentProps<typeof SelectPrimitive.Root>) {
     return <SelectPrimitive.Root data-slot="select" {...props} />
 }
 
@@ -140,15 +138,16 @@ function SelectScrollDownButton({className, ...props}: React.ComponentProps<type
     )
 }
 
-export {
-    Select,
-    SelectContent,
-    SelectGroup,
-    SelectItem,
-    SelectLabel,
-    SelectScrollDownButton,
-    SelectScrollUpButton,
-    SelectSeparator,
-    SelectTrigger,
-    SelectValue,
-}
+const Select = Object.assign(SelectRoot, {
+    Content: SelectContent,
+    Group: SelectGroup,
+    Item: SelectItem,
+    Label: SelectLabel,
+    ScrollDownButton: SelectScrollDownButton,
+    ScrollUpButton: SelectScrollUpButton,
+    Separator: SelectSeparator,
+    Trigger: SelectTrigger,
+    Value: SelectValue,
+})
+
+export {Select}

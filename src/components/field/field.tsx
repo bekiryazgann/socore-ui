@@ -76,7 +76,7 @@ const fieldVariants = cva(
     }
 )
 
-function Field({
+function FieldRoot({
                    className,
                    orientation = "vertical",
                    ...props
@@ -232,15 +232,17 @@ function FieldError({
     )
 }
 
-export {
-    Field,
-    FieldLabel,
-    FieldDescription,
-    FieldError,
-    FieldGroup,
-    FieldLegend,
-    FieldSeparator,
-    FieldSet,
-    FieldContent,
-    FieldTitle,
-}
+
+const Field = Object.assign(FieldRoot, {
+    Label: FieldLabel,
+    Description: FieldDescription,
+    Error: FieldError,
+    Group: FieldGroup,
+    Legend: FieldLegend,
+    Separator: FieldSeparator,
+    Set: FieldSet,
+    Content: FieldContent,
+    Title: FieldTitle,
+})
+
+export {Field}
