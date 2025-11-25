@@ -15,6 +15,10 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
+    // Provide required args to satisfy Storybook typings for the Accordion component
+    args: {
+        type: 'single',
+    },
     render: () => (
         <div className='w-lg'>
             <Accordion
