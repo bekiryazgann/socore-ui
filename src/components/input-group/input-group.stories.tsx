@@ -5,7 +5,7 @@ import { ArrowUpIcon, Search } from "lucide-react"
 import {DropdownMenu} from "../dropdown-menu"
 import {InputGroup} from "./input-group"
 import { Separator } from "../separator"
-import { Tooltip, TooltipContent, TooltipTrigger } from "../tooltip"
+import { Tooltip } from "../tooltip"
 
 
 const meta = {
@@ -36,12 +36,12 @@ export const Default: Story = {
                 </InputGroup.Addon>
                 <InputGroup.Addon align="inline-end">
                     <Tooltip>
-                        <TooltipTrigger asChild>
+                        <Tooltip.Trigger asChild>
                             <InputGroup.Button className="rounded-full" size="icon-xs">
                                 <IconInfoCircle />
                             </InputGroup.Button>
-                        </TooltipTrigger>
-                        <TooltipContent>This is content in a tooltip.</TooltipContent>
+                        </Tooltip.Trigger>
+                        <Tooltip.Content>This is content in a tooltip.</Tooltip.Content>
                     </Tooltip>
                 </InputGroup.Addon>
             </InputGroup>

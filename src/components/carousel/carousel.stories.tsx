@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { Card, CardContent } from '../card';
+import { Card } from '../card';
 import { Carousel } from './carousel';
 
 
@@ -23,9 +23,9 @@ export const Default: Story = {
                     <Carousel.Item key={index}>
                         <div className="p-1">
                             <Card>
-                                <CardContent className="flex aspect-square items-center justify-center p-6">
+                                <Card.Content className="flex aspect-square items-center justify-center p-6">
                                     <span className="text-4xl font-semibold">{index + 1}</span>
-                                </CardContent>
+                                </Card.Content>
                             </Card>
                         </div>
                     </Carousel.Item>
