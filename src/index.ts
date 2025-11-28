@@ -59,6 +59,9 @@ export {
 } from './components/mask-input'
 export {ColorPicker} from './components/color-picker'
 export {VisuallyHiddenInput} from './components/visually-hidden-input'
+export {Markdown} from './components/markdown'
+export {CodeBlock} from './components/code-block'
+export {CircularSlider} from './components/circular-slider'
 
 export {cn, isInputElement} from "./lib/utils";
 export {composeRefs, useComposedRefs} from "./lib/compose-refs"
