@@ -44,6 +44,6 @@ export {Progress} from "./components/progress";
 export {FileUpload, type FileUploadProps} from './components/file-upload'
 export {QRCode, type QRCodeProps} from './components/qr-code'
 
-export {cn} from "./lib/utils";
+export {cn, isInputElement} from "./lib/utils";
 export {composeRefs, useComposedRefs} from "./lib/compose-refs"
 export {useIsMobile} from './hooks/use-mobile'
