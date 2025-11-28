@@ -43,6 +43,22 @@ export {Breadcrumb} from "./components/breadcrumb";
 export {Progress} from "./components/progress";
 export {FileUpload, type FileUploadProps} from './components/file-upload'
 export {QRCode, type QRCodeProps} from './components/qr-code'
+export {Kbd} from './components/kbd'
+export {CommandBar} from './components/command-bar'
+export {
+    MaskInput,
+    MASK_PATTERNS,
+    applyMask,
+    applyCurrencyMask,
+    applyPercentageMask,
+    getUnmaskedValue,
+    toUnmaskedIndex,
+    fromUnmaskedIndex,
+    type MaskPattern,
+    type MaskInputProps
+} from './components/mask-input'
+export {ColorPicker} from './components/color-picker'
+export {VisuallyHiddenInput} from './components/visually-hidden-input'
 
 export {cn, isInputElement} from "./lib/utils";
 export {composeRefs, useComposedRefs} from "./lib/compose-refs"
